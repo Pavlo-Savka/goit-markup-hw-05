@@ -58,27 +58,31 @@ body {
     line-height: 1.17;
     letter-spacing: 0.02em;
 }
-
-.header-contacts .mail:hover,
+.header-tel:hover,
+.header-mail:hover,
+.header-mail:hover .mail-icon,
+.header-tel:hover .tel-icon,
 .mail:hover,
-.header-contacts .tel:hover,
 .tel:hover,
 .studio-link:hover,
 .portfolio-link:hover,
 .cotacts-link:hover,
 .address-title:hover {
     color: var(--accent-color);
+    fill: var(--accent-color);
 }
-
-.header-contacts .mail:focus,
+.header-tel:focus,
+.header-mail:focus,
+.header-mail:focus .mail-icon,
+.header-tel:focus .tel-icon,
 .mail:focus,
-.header-contacts .tel:focus,
 .tel:focus,
 .studio-link:focus,
 .portfolio-link:focus,
 .cotacts-link:focus,
 .address-title:focus {
     color: var(--accent-color);
+    fill: var(--accent-color);
 }
 
 .studio-link,
@@ -87,8 +91,8 @@ body {
     color: inherit;
 }
 
-.header-contacts .tel,
-.header-contacts .mail {
+.header-tel,
+.header-mail {
     color: var(--paragraf-color);
 }
 
@@ -96,7 +100,8 @@ body {
 .mail {
     color: var(--footer-contacts-color);
 }
-
+.header-tel,
+.header-mail,
 .tel,
 .mail,
 .address-title,
@@ -447,19 +452,8 @@ body {
     display: flex;
     align-items: center;
 }
-.header-contacts .mail:hover .mail-icon,
-.mail:hover .mail-icon,
-.header-contacts .tel:hover .tel-icon,
-.tel:hover .tel-icon {
-fill: var(--accent-color);
-}
-.header-contacts .mail:focus .mail-icon,
-.mail:focus .mail-icon,
-.header-contacts .tel:focus .tel-icon,
-.tel:focus .tel-icon {
-fill: var(--accent-color);
-}
-.social-links-list {
+
+    .social-links-list {
     display: flex;
     list-style-type: none;
     padding-left: 0;
@@ -590,13 +584,42 @@ fill: var(--accent-color);
 .portfolio-link,
 .cotacts-link,
 .mail,
+.header-tel,
+.header-mail,
+.mail-icon,
+.tel-icon,
 .tel,
 .address-title,
 .clients-list-logo,
+.clients-link,
 .button-list-item,
 .project-list-item
  {
-    transition-property: color, background-color, fill, box-shadow;
+    transition-property: color, background-color, fill, box-shadow, border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .working-item {
+        position: relative;
+    }
+    .working-img {
+        display: block;
+    }
+    .working-text {
+        position: absolute;
+        display: flex;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(47, 48, 58, 0.8);
+        width: 100%;
+        height: 70px;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.03em;
+        color: #FFFFFF;
     }
