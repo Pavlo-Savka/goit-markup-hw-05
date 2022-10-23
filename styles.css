@@ -1,6 +1,7 @@
 :root {
     --main-color: #fff;
     --accent-color: #2196f3;
+    --accent-color-opacity: rgba(33, 150, 243, 0.9);
     --paragraf-color: #757575;
     --headline-color: #212121;
     --footer-contacts-color: rgba(255, 255, 255, 0.6);
@@ -11,6 +12,7 @@
     --header-border-color: #ececec;
     --icons-color: #afb1b8;
     --icons-footer-around-color: rgba(255, 255, 255, 0.1);
+    --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -593,16 +595,17 @@ body {
 .clients-list-logo,
 .clients-link,
 .button-list-item,
-.project-list-item
+.project-list-item,
+.menu-link::after
  {
-    transition-property: color, background-color, fill, box-shadow, border-color;
+    transition-property: color, background-color, fill, box-shadow, border-color, opacity;
     transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: var(--cubic);
     }
     .working-item {
         position: relative;
     }
-    .working-img {
+    .working-img {       
         display: block;
     }
     .working-text {
@@ -622,4 +625,88 @@ body {
         line-height: 1.14;
         letter-spacing: 0.03em;
         color: #FFFFFF;
-    }
+      }
+.menu-link {
+    position: relative;
+    display: block;
+}
+.menu-link::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: -28px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    opacity: 0;
+}
+.menu-link.current::after {
+    content: "";
+    opacity: 1;
+}
+.menu-link.current {
+    color: var(--accent-color);
+}
+.menu-link:hover::after,
+.menu-link:focus::after {
+opacity: 1;
+}
+.overlay-block {
+    position: relative;
+    overflow: hidden;
+}
+.overlay-text {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    align-items: center;
+    background-color: var(--accent-color-opacity);
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--main-color);
+    margin: 0;
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+}
+.project-list-link:hover .overlay-text,
+.project-list-link:focus .overlay-text {
+    transform: translateY(0);
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.modal {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    padding: 8px;
+    background-color: var(--main-color);
+    border-radius: 4px;
+}
+.button-close {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+}

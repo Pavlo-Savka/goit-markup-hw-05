@@ -19,13 +19,13 @@
                 <a href="./index.html" class="logo"><span class="logo-1half">Web</span><span class="logo-2half">Studio</span></a>
                 <ul class="nav-list">
                     <li>
-                        <a href="./index.html" class="studio-link">Студія</a>
+                        <a href="./index.html" class="studio-link menu-link current">Студія</a>
                     </li>
                     <li>
-                        <a href="./portfolio.html" class="portfolio-link">Портфоліо</a>
+                        <a href="./portfolio.html" class="portfolio-link menu-link">Портфоліо</a>
                     </li>
                     <li>
-                        <a href="#" class="cotacts-link">Контакти</a>
+                        <a href="#" class="cotacts-link menu-link">Контакти</a>
                     </li>
                 </ul>
             </nav>
@@ -52,7 +52,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-            <button type="button" class="hero-button">Замовити послугу</button>
+            <button type="button" class="hero-button" data-modal-open>Замовити послугу</button>
         </div>
     </section>
     <!--Переваги-->
@@ -106,16 +106,16 @@
                 <li class="working-item">
                     <a href="#"><img src="./images/hands-on-keyboard.jpg" alt="клавіатура, планшет, монітори на столі" width="370"
                                 height="294" class="working-img">
-                            <span class="working-text">Десктопні додатки</span></a>
+                            </a><span class="working-text">Десктопні додатки</span>
                 </li>
                 <li class="working-item">
                     <a href="#"><img src="./images/smartphone.jpg" alt="телефон в руці, ноутбук, монітор на столі" width="370"
                                 height="294" class="working-img">
-                            <span class="working-text">Мобільні додатки</span></a>
+                            </a><span class="working-text">Мобільні додатки</span>
                 </li>
                 <li class="working-item">
                     <a href="#"><img src="./images/tablet.jpg" alt="планшет та стилус в руці" width="370" height="294" class="working-img">
-                    <span class="working-text">Дизайнерські рішення</span></a>
+                    </a><span class="working-text">Дизайнерські рішення</span>
                 </li>
             </ul>
 
@@ -384,5 +384,13 @@
             </div>
         </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="button-close" data-modal-close>
+                Закрити
+            </button>
+        </div>
+    </div>
+<script src="./js/modal.js"></script>
 </body>
 </html>
