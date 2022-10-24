@@ -13,7 +13,7 @@
     --icons-color: #afb1b8;
     --icons-footer-around-color: rgba(255, 255, 255, 0.1);
     --cubic: cubic-bezier(0.4, 0, 0.2, 1);
-    --trans-duration: 2500ms;
+    --trans-duration: 250ms;
     --backdrop-color: rgba(0, 0, 0, 0.5);
 }
 
