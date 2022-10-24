@@ -13,6 +13,8 @@
     --icons-color: #afb1b8;
     --icons-footer-around-color: rgba(255, 255, 255, 0.1);
     --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    --trans-duration: 2500ms;
+    --backdrop-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -598,8 +600,8 @@ body {
 .project-list-item,
 .menu-link::after
  {
-    transition-property: color, background-color, fill, box-shadow, border-color, opacity;
-    transition-duration: 250ms;
+    transition-property: color, background-color, fill, box-shadow, border-color, opacity, visibility, transform;
+    transition-duration: var(--trans-duration);
     transition-timing-function: var(--cubic);
     }
     .working-item {
@@ -672,7 +674,7 @@ opacity: 1;
     margin: 0;
     transform: translateY(100%);
     transition-property: transform;
-    transition-duration: 250ms;
+    transition-duration: var(--trans-duration);
     transition-timing-function: var(--cubic);
 }
 .project-list-link:hover .overlay-text,
@@ -685,28 +687,56 @@ opacity: 1;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--backdrop-color);
+    transition-property: opacity, visibility, transform;
+    transition-duration: var(--trans-duration);
+    transition-timing-function: var(--cubic);
 }
 .backdrop.is-hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+ 
+}
+
+.backdrop.is-hidden .modal {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition-property: opacity, visibility, transform;
+    transition-duration: var(--trans-duration);
+    transition-timing-function: var(--cubic);
+    transform: translate(-50%, -50%) scale(0.1);
+}
+.backdrop .modal {
+    transition-property: opacity, visibility, transform;
+    transition-duration: var(--trans-duration);
+    transition-timing-function: var(--cubic);
+    transform: translate(-50%, -50%) scale(1);
 }
 .modal {
     position: absolute;
     display: flex;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     min-width: 528px;
     min-height: 581px;
     padding: 8px;
     background-color: var(--main-color);
     border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.button-close {
+.icon-close {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 8px;
+    top: 8px;
+    right: 8px;
+}
+.button-list-item:hover,
+.button-list-item:focus {
+box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+0px 1px 2px rgba(0, 0, 0, 0.08),
+0px 2px 2px rgba(0, 0, 0, 0.12);
 }
